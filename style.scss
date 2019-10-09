@@ -1,18 +1,105 @@
 @import url('https://fonts.googleapis.com/css?family=Handlee|Quicksand:400,700&display=swap');
 // font-family: 'Handlee', cursive;
 // font-family: 'Quicksand', sans-serif;
+*{
+    color: #fff !important;
+}
 body{
     font-family: 'Quicksand', sans-serif;
+    background: rgb(226, 226, 226);
+    font-size: 16px;
+    color: #555;
+    line-height: 26px;
+}
+hr{
+    opacity: 0.3;
+}
+h2, h3, h4, h5{
+    font-family: 'Handlee', cursive;
+    color: #777;
 }
 h2{
-    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    line-height: 30px;   
 }
-aside{
-    h2{
-        font-size: 10px;
+h3{
+    font-size: 18px;
+    line-height: 28px;   
+}
+h4{
+    font-size: 16px;
+    line-height: 16px;   
+}
+h5{
+    font-size: 14px;
+    line-height: 14px;   
+}
+.padding{
+    padding: 25px;
+}
+section{
+    display: flex;
+    #containerPosts{
+        width: 70%;
+        #contentPosts{
+            .post{
+                .header{
+                    display: flex;
+                    align-items: center;
+                    justify-items: auto;
+                    justify-content: space-between;
+                    h3{
+                    }
+                    .date{
+                        
+                    }
+                }
+                .body{
+                    p{
+                        b{
+                            i{
+
+                            }
+                        }
+                    }
+                }
+                .footer{
+
+                }
+            }
+        }
     }
-    .image{
-        background-image: url('http://noverbal.es/uploads/blog/rostro-de-un-criminal.jpg');
-        border-radius: 4px;
+    aside{
+        width: 30%;
+        position: fixed;
+        right: 0;
+        top: 0;
+        background: #fff;
+        height: 100%;
+        box-shadow: -1px 0 3px rgb(209, 209, 209);
+        text-align: center;
+        overflow-y: auto;
+        h2{
+            font-size: 25px;
+            color: #fff;
+        }
+        .image{
+            // background-image: url('http://noverbal.es/uploads/blog/rostro-de-un-criminal.jpg');
+            background-position: center;
+            background-size: cover;
+            width: 150px;
+            border-radius: 50%;
+            border: solid 2px #eee;
+            display: block;
+            margin: auto;
+            &:after{
+                content: '';
+                display: block;
+                padding-top: 100%;
+            }
+        }
+        h3{
+            text-align: center;   
+        }
     }
 }
