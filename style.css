@@ -5,6 +5,7 @@ body {
   font-size: 16px;
   color: #555;
   line-height: 26px;
+  margin: 0;
 }
 
 hr {
@@ -37,7 +38,7 @@ h5 {
 }
 
 .padding {
-  padding: 25px;
+  margin: 25px;
 }
 
 section {
@@ -50,22 +51,7 @@ section #containerPosts {
   width: 70%;
 }
 
-section #containerPosts #contentPosts {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-section #containerPosts #contentPosts .post {
-  width: 45%;
-  background: #fff;
-  padding: 15px;
-}
-
-section #containerPosts #contentPosts .post .header {
+section #containerPosts .grid .item .content .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,18 +62,41 @@ section #containerPosts #contentPosts .post .header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 50px;
+  padding: 5px 15px;
 }
 
-section #containerPosts #contentPosts .post .image {
+section #containerPosts .grid .item .content .header .category {
+  font-size: 10px;
+}
+
+section #containerPosts .grid .item .content .header .date {
+  font-size: 10px;
+}
+
+section #containerPosts .grid .item .content .image {
   background-image: url("http://noverbal.es/uploads/blog/rostro-de-un-criminal.jpg");
   background-position: center;
   background-size: cover;
   height: 200px;
 }
 
-section #containerPosts #contentPosts .post .body .title h3 {
-  font-size: 20px;
+section #containerPosts .grid .item .content .title {
+  padding: 15px;
+}
+
+section #containerPosts .grid .item .content .title h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+section #containerPosts .grid .item .content .body {
+  padding: 0 15px 15px 15px;
+}
+
+section #containerPosts .grid .item .content .body p {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+  line-height: 24px;
 }
 
 section aside {
@@ -126,5 +135,23 @@ section aside .image:after {
 
 section aside h3 {
   text-align: center;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 20px;
+}
+
+/* Non-grid specific CSS */
+.item {
+  background-color: #ffffff;
+}
+
+.photothumb {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
