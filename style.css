@@ -1,8 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Handlee|Quicksand:400,700&display=swap");
-* {
-  color: #fff !important;
-}
-
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Quicksand:400,700&display=swap");
 body {
   font-family: 'Quicksand', sans-serif;
   background: #e2e2e2;
@@ -16,7 +12,7 @@ hr {
 }
 
 h2, h3, h4, h5 {
-  font-family: 'Handlee', cursive;
+  font-family: 'Roboto Slab', serif;
   color: #777;
 }
 
@@ -54,6 +50,21 @@ section #containerPosts {
   width: 70%;
 }
 
+section #containerPosts #contentPosts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section #containerPosts #contentPosts .post {
+  width: 45%;
+  background: #fff;
+  padding: 15px;
+}
+
 section #containerPosts #contentPosts .post .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,6 +76,18 @@ section #containerPosts #contentPosts .post .header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  height: 50px;
+}
+
+section #containerPosts #contentPosts .post .image {
+  background-image: url("http://noverbal.es/uploads/blog/rostro-de-un-criminal.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+}
+
+section #containerPosts #contentPosts .post .body .title h3 {
+  font-size: 20px;
 }
 
 section aside {
