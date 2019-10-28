@@ -89,6 +89,11 @@ section #containerPosts .grid .item .content .title h3 {
   margin: 0;
 }
 
+section #containerPosts .grid .item .content .title h3 a {
+  color: #333;
+  text-decoration: none;
+}
+
 section #containerPosts .grid .item .content .body {
   padding: 0 15px 15px 15px;
 }

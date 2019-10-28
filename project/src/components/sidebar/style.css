@@ -1,0 +1,38 @@
+#sidebar {
+  width: 30%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: #fff;
+  height: 100%;
+  -webkit-box-shadow: -1px 0 3px #d1d1d1;
+          box-shadow: -1px 0 3px #d1d1d1;
+  text-align: center;
+  overflow-y: auto;
+}
+
+#sidebar h2 {
+  font-size: 25px;
+  color: #fff;
+}
+
+#sidebar .image {
+  background-position: center;
+  background-size: cover;
+  width: 150px;
+  border-radius: 50%;
+  border: solid 2px #eee;
+  display: block;
+  margin: auto;
+}
+
+#sidebar .image:after {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+#sidebar h3 {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
