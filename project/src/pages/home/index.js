@@ -6,6 +6,7 @@ import {
     Link,
     useRouteMatch
   } from "react-router-dom";
+import Header from '../../components/header';
 import './style.scss'
 
 class Home extends Component {
@@ -48,7 +49,8 @@ class Home extends Component {
     render() {
         return (
             <div id="homePage">
-                <div className="padding">                
+                <div className="padding">
+                    <Header></Header>
                     <div className="grid">
 
                         <div className="item category">
@@ -60,7 +62,7 @@ class Home extends Component {
                                 <div className="image"></div>
                                 <div className="title">
                                     <h3>
-                                        <Link to="/single">Blog Post</Link>
+                                        <Link to="/blog/slug">Blog Post</Link>
                                     </h3>
                                 </div>
                                 <div className="body">
@@ -78,7 +80,7 @@ class Home extends Component {
                                 <div className="image"></div>
                                 <div className="title">
                                     <h3>
-                                        <Link to="/single">Blog Post</Link>
+                                        <Link to="/blog">Blog Post</Link>
                                     </h3>
                                 </div>
                                 <div className="body">
@@ -96,7 +98,7 @@ class Home extends Component {
                                 <div className="image"></div>
                                 <div className="title">
                                     <h3>
-                                        <Link to="/single">Blog Post</Link>
+                                        <Link to="/blog">Blog Post</Link>
                                     </h3>
                                 </div>
                                 <div className="body">
@@ -114,7 +116,7 @@ class Home extends Component {
                                 <div className="image"></div>
                                 <div className="title">
                                     <h3>
-                                        <Link to="/single">Blog Post</Link>
+                                        <Link to="/blog">Blog Post</Link>
                                     </h3>
                                 </div>
                                 <div className="body">
