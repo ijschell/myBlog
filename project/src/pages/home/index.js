@@ -13,122 +13,118 @@ class Home extends Component {
 
     constructor(){
         super();
+        this.state = {
+            blog : [],
+            technology : [],
+            ready : false
+        }
     }
 
-    componentDidMount() {
+    masonry(){
+
         function resizeGridItem(item){
             var grid = document.getElementsByClassName("grid")[0];
             var rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
             var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
             var rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
-              item.style.gridRowEnd = "span "+rowSpan;
-          }
-          
-          function resizeAllGridItems(){
+            item.style.gridRowEnd = "span "+rowSpan;
+        }
+
+        function resizeAllGridItems(){
             var allItems = document.getElementsByClassName("item");
             for(x=0;x<allItems.length;x++){
-              resizeGridItem(allItems[x]);
+                resizeGridItem(allItems[x]);
             }
-          }
-          
-          function resizeInstance(instance){
-            var item = instance.elements[0];
-            resizeGridItem(item);
-          }
-          
-          window.onload = resizeAllGridItems();
-          window.addEventListener("resize", resizeAllGridItems);
-          
-          var allItems = document.getElementsByClassName("item");
-          for(var x=0;x<allItems.length;x++){
+        }
+
+        function resizeInstance(instance){
+        var item = instance.elements[0];
+        resizeGridItem(item);
+        }
+
+        window.onload = resizeAllGridItems();
+        window.addEventListener("resize", resizeAllGridItems);
+
+        var allItems = document.getElementsByClassName("item");
+        for(var x=0;x<allItems.length;x++){
             //imagesLoaded( allItems[x], resizeInstance);
-          }
+        }        
+
+    }
+
+    componentDidMount() {
+
+        this.getLastPosts();
+
     }
     
+    getLastPosts(){
 
-    render() {
-        return (
-            <div id="homePage">
-                <div className="padding">
-                    <Header></Header>
-                    <div className="grid">
+        fetch('https://raw.githubusercontent.com/ijschell/myBlog/master/project/db.json').then(data => {
+            return data.json();
+        }).then(data => {
+            this.setState({
+                blog : data.posts.blog,
+                technology : data.posts.technology,
+                ready : true
+            })
+        }).finally(() => {
 
-                        <div className="item category">
-                            <div className="content">
-                                <div className="header">
-                                    <div className="category">Blog</div>
-                                    <div className="date">10/12/2019</div>
-                                </div>
-                                <div className="image"></div>
-                                <div className="title">
-                                    <h3>
-                                        <Link to="/blog/slug">Blog Post</Link>
-                                    </h3>
-                                </div>
-                                <div className="body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis fringilla laoreet. Mauris mattis enim ut felis consectetur, vitae lacinia enim auctor. Aenean vitae fermentum odio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum non orci ut dignissim. Fusce fermentum felis aliquam, mattis nibh ut, faucibus leo. Sed lectus libero, volutpat at eros quis, venenatis tempus neque. Nulla vel faucibus orci, nec convallis ligula. Quisque maximus gravida orci, in lacinia mauris pretium nec. Sed et enim bibendum, fermentum tellus eu, eleifend ex. Aliquam lectus magna, sollicitudin vitae placerat ac, semper ut risus. Nunc vestibulum lacus et nulla volutpat auctor.</p>
-                                </div>
-                            </div>
-                        </div>
+            setTimeout(() => {
+                this.masonry()
+            }, 500);
 
-                        <div className="item category">
-                            <div className="content">
-                                <div className="header">
-                                    <div className="category">Blog</div>
-                                    <div className="date">10/12/2019</div>
-                                </div>
-                                <div className="image"></div>
-                                <div className="title">
-                                    <h3>
-                                        <Link to="/blog">Blog Post</Link>
-                                    </h3>
-                                </div>
-                                <div className="body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis fringilla laoreet. Mauris.</p>
-                                </div>
-                            </div>
-                        </div>
+        })
 
-                        <div className="item category">
-                            <div className="content">
-                                <div className="header">
-                                    <div className="category">Blog</div>
-                                    <div className="date">10/12/2019</div>
-                                </div>
-                                <div className="image"></div>
-                                <div className="title">
-                                    <h3>
-                                        <Link to="/blog">Blog Post</Link>
-                                    </h3>
-                                </div>
-                                <div className="body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis fringilla laoreet. Mauris.elit. Fusce facilisis fringilla laoreet. Mauris elit. Fusce facilisis fringilla laoreet. Mauris</p>
-                                </div>
-                            </div>
-                        </div>
+    }
 
-                        <div className="item category">
-                            <div className="content">
-                                <div className="header">
-                                    <div className="category">Blog</div>
-                                    <div className="date">10/12/2019</div>
-                                </div>
-                                <div className="image"></div>
-                                <div className="title">
-                                    <h3>
-                                        <Link to="/blog">Blog Post</Link>
-                                    </h3>
-                                </div>
-                                <div className="body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce facilisis fringilla laoreet. Mauris.elit. Fusce facilisis fringilla laoreet. Mauris elit. Fusce facilisis fringilla laoreet. Mauris</p>
-                                </div>
-                            </div>
-                        </div>
+    printPost(){
 
+        const allPosts = this.state.blog.concat(this.state.technology)
+        
+        return allPosts.map((v, k) => (
+
+            <div key={k} className="item category">
+                <div className="content">
+                    <div className="header">
+                        <div className="category">Blog</div>
+                        <div className="date">{v.date}</div>
+                    </div>
+                    <div className="image" style={{backgroundImage : `url(${v.image})`}}></div>
+                    <div className="title">
+                        <h3>
+                            <Link to="/blog/slug">Blog Post</Link>
+                        </h3>
+                    </div>
+                    <div className="body">
+                        <p>{v.description}</p>
                     </div>
                 </div>
             </div>
-        );
+
+        ))
+
+    }
+
+    render() {
+
+        if(!this.state.ready){
+            return 'loading...';
+        }else{
+
+            return (
+                <div id="homePage">
+                    <div className="padding">
+                        <Header></Header>
+                        <div className="grid">
+                            {this.printPost()}
+                        </div>
+                    </div>
+                </div>
+            );
+
+        }
+
     }
 }
 
