@@ -1,3 +1,11 @@
+/*
+Theme Name: Blog Jonathan Schell
+Theme URI: http://thecodingbear.com/
+Author: Jonathan Schell
+Author URI: http://thecodingbear.com/
+Description: Este es un template creado por Jonathan Schell.
+Version: 1.0
+*/
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Quicksand:400,700&display=swap');
 // font-family: 'Handlee', cursive;
 // font-family: 'Quicksand', sans-serif;
@@ -8,7 +16,7 @@ body{
     font-family: 'Quicksand', sans-serif;
     background: rgb(226, 226, 226);
     font-size: 16px;
-    color: #555;
+    color: #333;
     line-height: 26px;
     margin: 0;
 }
@@ -37,10 +45,42 @@ h5{
 }
 .padding{
     margin: 25px;
+    position: relative;
 }
 section{
     display: flex;
-    #containerPosts{
+    .volver{
+        position: absolute;
+        right: 0;
+        top: 4px;    
+        display: flex;
+        flex-wrap: wrap;
+        justify-items: stretch;
+        a.volverAtras, a.goHome{
+            display: flex;
+            flex-wrap: wrap;
+            color: #777;
+            justify-items: stretch;
+            align-items: center;
+            text-decoration: none;
+            span{
+                font-size: 12px;
+                margin-left: 3px;
+            }
+        }
+        > span{
+            margin: 0 10px;
+            color: #adadad;
+        }
+    }
+    a{
+        color: #1f8080 !important;    
+        transition: color 0.3s ease;
+        &:hover{
+            color: #004040 !important;
+        }
+    }
+    #containerPosts, #containerCategory{
         width: 70%;
         .grid{
             .item{
@@ -53,6 +93,10 @@ section{
                         padding: 5px 15px;
                         .category{
                             font-size: 10px;
+                            a{
+                                text-decoration: none;
+                                color: #333;
+                            }
                         }
                         .date{
                             font-size: 10px;
@@ -108,7 +152,7 @@ section{
         overflow-y: auto;
         h2{
             font-size: 25px;
-            color: #fff;
+            // color: #fff;
         }
         .image{
             // background-image: url('http://noverbal.es/uploads/blog/rostro-de-un-criminal.jpg');
@@ -147,3 +191,46 @@ section{
   .photothumb{
     width: 100%;
   }
+
+#containerPost{
+    width: 70%;
+    .padding{
+        padding-top: 35px;
+    }
+    .imagePost{
+        width: 100%;
+        height: 350px;
+    }
+    .header{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px 0;
+        .category{
+            font-size: 16px;
+            a{
+                color: #333;
+                text-decoration: none;
+            }
+        }
+        .date{
+            font-size: 16px;
+        }
+    }
+    h2{
+        font-size: 30px;
+        margin: 0;
+    }
+    .postContent{
+        font-size: 18px;
+        p:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+#containerCategory{
+    h2{
+        margin: 0 0 20px 0;
+    }
+}

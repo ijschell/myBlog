@@ -11,6 +11,11 @@ class SaveWorld{
 
 }
 
+function goBack(){
+  window.history.back();
+  return false;
+}
+
 $(document).ready(function(){
 
     var saveWorld = new SaveWorld();
